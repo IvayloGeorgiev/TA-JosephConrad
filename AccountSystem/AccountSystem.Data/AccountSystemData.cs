@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using AccountSystem.Data.Repositories;
+using AccountSystem.Models;
 
 namespace AccountSystem.Data
 {
@@ -18,6 +19,21 @@ namespace AccountSystem.Data
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
+        }
+
+        public IRepository<ApplicationUser> Users
+        {
+            get { return this.GetRepository<ApplicationUser>(); }
+        }
+
+        public IRepository<Account> Accounts
+        {
+            get { return this.GetRepository<Account>(); }
+        }
+
+        public IRepository<Card> Cards
+        {
+            get { return this.GetRepository<Card>(); }
         }
 
         private IRepository<T> GetRepository<T>() where T : class

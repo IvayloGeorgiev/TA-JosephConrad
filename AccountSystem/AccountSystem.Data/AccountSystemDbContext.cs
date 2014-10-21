@@ -22,6 +22,10 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AccountSystemDbContext, Configuration>());
         }
 
+        public IDbSet<Account> Accounts { get; set; }
+
+        public IDbSet<Card> Cards { get; set; }
+
         public static AccountSystemDbContext Create()
         {
             return new AccountSystemDbContext();

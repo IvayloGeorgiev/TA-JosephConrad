@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountSystemData.cs" />
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="AccountSystemDbContext.cs" />
     <Compile Include="IAccountSystemData.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

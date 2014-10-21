@@ -8,9 +8,7 @@
     using System.Web.UI.WebControls;
 
     using AccountSystem.Data;
-    using AccountSystem.Models;
-    using Ninject;
-    using Ninject.Web;
+    using dbModels = AccountSystem.Models;
 
     public partial class _Default : Page
     {

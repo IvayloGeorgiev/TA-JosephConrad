@@ -11,6 +11,12 @@
 
     public interface IAccountSystemData
     {
+        IRepository<ApplicationUser> Users { get; }
+
+        IRepository<Account> Accounts { get; }
+
+        IRepository<Card> Cards { get; }
+
         int SaveChanges();
     }
 }

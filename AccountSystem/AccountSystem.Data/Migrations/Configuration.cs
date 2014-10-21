@@ -10,6 +10,7 @@ namespace AccountSystem.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(AccountSystem.Data.AccountSystemDbContext context)
