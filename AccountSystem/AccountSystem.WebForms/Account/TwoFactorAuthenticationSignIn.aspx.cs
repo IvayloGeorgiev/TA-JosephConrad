@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using AccountSystem.WebForms.Models;
+using AccountSystem.Models;
 
 namespace AccountSystem.WebForms.Account
 {

@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using AccountSystem.WebForms.Models;
+using AccountSystem.Models;
 
 namespace AccountSystem.WebForms.Account
 {
