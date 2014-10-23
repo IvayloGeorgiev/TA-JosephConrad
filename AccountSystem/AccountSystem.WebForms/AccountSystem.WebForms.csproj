@@ -176,6 +176,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Users\Admin\UserDetails.aspx" />
+    <Content Include="Users\Create.aspx" />
     <Content Include="Users\Details.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -379,6 +380,12 @@
     </Compile>
     <Compile Include="Users\Admin\UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>
