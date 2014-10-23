@@ -13,6 +13,33 @@ namespace AccountSystem.WebForms.Users {
     public partial class List {
         
         /// <summary>
+        /// DropDownListFindBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListFindBy;
+        
+        /// <summary>
+        /// TextBoxFindByUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFindByUserName;
+        
+        /// <summary>
+        /// ButtonFindByUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonFindByUserName;
+        
+        /// <summary>
         /// UsersRepeater control.
         /// </summary>
         /// <remarks>
