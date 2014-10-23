@@ -175,6 +175,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Users\Admin\CardsDetails.aspx" />
+    <Content Include="Users\Admin\PendingCards.aspx" />
     <Content Include="Users\Admin\UserDetails.aspx" />
     <Content Include="Users\Create.aspx" />
     <Content Include="Users\Details.aspx" />
@@ -212,6 +214,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
+    <Content Include="User\Cards.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -375,6 +378,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Users\Admin\CardsDetails.aspx.cs">
+      <DependentUpon>CardsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\Admin\CardsDetails.aspx.designer.cs">
+      <DependentUpon>CardsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Admin\PendingCards.aspx.cs">
+      <DependentUpon>PendingCards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\Admin\PendingCards.aspx.designer.cs">
+      <DependentUpon>PendingCards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Users\Admin\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +401,7 @@
     </Compile>
     <Compile Include="Users\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Users\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
@@ -457,7 +475,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57213</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
