@@ -4,14 +4,15 @@
 
     <div class="row">
         <h2>Users</h2>
+        <a href="/Users/Create">Create User</a>
         <div>
             Find user by  
             <asp:DropDownList ID="DropDownListFindBy" runat="server">
                     <asp:ListItem Text="username" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="email"></asp:ListItem>
                 </asp:DropDownList>
-            <asp:TextBox ID="TextBoxFindByUserName" runat="server"></asp:TextBox>
-            <asp:Button ID="ButtonFindByUserName" Text="Find" runat="server" OnClick="FindUser" />
+            <asp:TextBox ID="TextBoxFindUser" runat="server"></asp:TextBox>
+            <asp:Button ID="ButtonFindUser" Text="Find" runat="server" OnClick="FindUser" />
         </div>
         <asp:Repeater ID="UsersRepeater" runat="server"            
             ItemType="AccountSystem.Models.ApplicationUser">

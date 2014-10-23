@@ -22,22 +22,22 @@ namespace AccountSystem.WebForms.Users {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListFindBy;
         
         /// <summary>
-        /// TextBoxFindByUserName control.
+        /// TextBoxFindUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFindByUserName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFindUser;
         
         /// <summary>
-        /// ButtonFindByUserName control.
+        /// ButtonFindUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFindByUserName;
+        protected global::System.Web.UI.WebControls.Button ButtonFindUser;
         
         /// <summary>
         /// UsersRepeater control.
