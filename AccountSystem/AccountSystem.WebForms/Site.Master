@@ -51,10 +51,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <% if (HttpContext.Current.User.IsInRole("Client")) {%>
-                            <li><a runat="server" href="~/Profile">Your accounts</a></li>
-                        <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>
-                            <li><a runat="server" href="~/Profile">Accounts</a></li>
-                            <li><a runat="server" href="~/Users/List">Users</a></li>                            
+                            <li><a runat="server" href="~/Users/Details.aspx">Your accounts</a></li>
+                        <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>                            
+                            <li><a runat="server" href="~/Users/Admin/List">Users</a></li>                            
                         <%} %>
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>

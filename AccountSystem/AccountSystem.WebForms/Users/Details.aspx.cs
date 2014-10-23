@@ -9,18 +9,18 @@ using Microsoft.AspNet.Identity.Owin;
 using AccountSystem.Data;
 using AccountSystem.Models;
 
-namespace AccountSystem.WebForms
+namespace AccountSystem.WebForms.Users
 {
-    public partial class Profile : System.Web.UI.Page
-    {        
+    public partial class Details : System.Web.UI.Page
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/Account/Login");
             }
-            
-            var userId = User.Identity.GetUserId();
+           
+            var userId = User.Identity.GetUserId();            
 
             var data = new AccountSystemData(new AccountSystemDbContext());
 

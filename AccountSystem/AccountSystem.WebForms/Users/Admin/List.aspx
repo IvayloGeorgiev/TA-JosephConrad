@@ -19,8 +19,8 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <a href="~/Users/Details?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>"><%#: DataBinder.Eval(Container.DataItem, "Id") %></a>
-                    </td>
+                        <a href="/Users/Admin/UserDetails?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>"><%#: DataBinder.Eval(Container.DataItem, "Id") %></a>
+                    </t>
                     <td><%#: DataBinder.Eval(Container.DataItem, "Username") %></td>
                 </tr>
             </ItemTemplate>

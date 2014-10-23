@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccountSystem.WebForms {
+namespace AccountSystem.WebForms.Users.Admin {
     
     
-    public partial class Profile {
+    public partial class UserDetails {
         
         /// <summary>
         /// AccountsRepeater control.
