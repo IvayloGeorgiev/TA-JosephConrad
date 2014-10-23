@@ -54,7 +54,7 @@
                             <li><a runat="server" href="~/Profile">Your accounts</a></li>
                         <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>
                             <li><a runat="server" href="~/Profile">Accounts</a></li>
-                            <li><a runat="server" href="~/Users/Main">Users</a></li>                            
+                            <li><a runat="server" href="~/Users/List">Users</a></li>                            
                         <%} %>
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>

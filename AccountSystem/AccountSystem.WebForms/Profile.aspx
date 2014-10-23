@@ -25,9 +25,9 @@
                 <tr>
                     <td>
                         <a href="~/Accounts/Details?id=<%#: DataBinder.Eval(Container.DataItem, "Iban") %>"><%#: DataBinder.Eval(Container.DataItem, "Iban") %></a>
-                        <%#: DataBinder.Eval(Container.DataItem, "Balance") %>
-                        <%#: DataBinder.Eval(Container.DataItem, "CurrencyType") %>
                     </td>
+                    <td><%#: DataBinder.Eval(Container.DataItem, "Balance") %></td>
+                    <td><%#: DataBinder.Eval(Container.DataItem, "CurrencyType") %></td>
                 </tr>
             </ItemTemplate>
 
