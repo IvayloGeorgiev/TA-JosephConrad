@@ -28,7 +28,7 @@ namespace AccountSystem.Models
         [MinLength(4)]
         [MaxLength(6)]
         [Required]
-        public string Pin { get; set; }        
+        public string Pin { get; set; }
 
         public DateTime? ExpirationDate { get; set; }
 
