@@ -31,7 +31,7 @@ namespace AccountSystem.WebForms.Users
 
         protected void FindUser(object sender, EventArgs e)
         {
-            GetUser(DropDownListFindBy.SelectedItem.Text, TextBoxFindByUserName.Text);
+            GetUser(DropDownListFindBy.SelectedItem.Text, TextBoxFindUser.Text);
         }
 
         private void GetUser(string findBy, string searchData)
