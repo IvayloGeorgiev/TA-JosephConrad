@@ -13,6 +13,14 @@ namespace AccountSystem.WebForms
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+
+            RegisterCustomRoutes(RouteTable.Routes);
+        }
+
+        public static void RegisterCustomRoutes(RouteCollection routes)
+        {
+            routes.MapPageRoute("AddCardRoute", "User/Card/Add/", "~/User/AddCard.aspx", false);
+            routes.MapPageRoute("CardDetailsRoute", "User/Card/{cardId}/", "~/User/CardDetails.aspx", false);
         }
     }
 }

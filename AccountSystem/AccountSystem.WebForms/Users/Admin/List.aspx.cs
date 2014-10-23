@@ -14,6 +14,7 @@ namespace AccountSystem.WebForms.Users
     public partial class List : System.Web.UI.Page
     {
         private AccountSystemData data = new AccountSystemData(new AccountSystemDbContext());
+        private string adminRoleId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,11 +23,11 @@ namespace AccountSystem.WebForms.Users
                 Response.Redirect("/");
             }
             
-            var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();            
 
             var data = new AccountSystemData(new AccountSystemDbContext());
-
-            var users = data.Users.All().ToList();           
+            adminRoleId = data.Roles.All().FirstOrDefault(r => r.Name == "Admin").Id;
+            var users = data.Users.All().Where(u => !(u.Roles.Any(r => r.RoleId == adminRoleId))).ToList();
             UsersRepeater.DataSource = users;
             UsersRepeater.DataBind();
         }

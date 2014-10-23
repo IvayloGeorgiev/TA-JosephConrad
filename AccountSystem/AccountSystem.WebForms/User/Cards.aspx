@@ -4,13 +4,13 @@
     <h1>Cards Manager</h1>
     <div class="row">
         <div class="col-md-4">
-            <a href="#" class="btn btn-primary" role="button">Request New Card</a>
+            <asp:HyperLink runat="server" NavigateUrl="~/User/Card/Add" CssClass="btn btn-primary">Request New Card</asp:HyperLink>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <asp:GridView ID="GridViewCards" runat="server" AutoGenerateColumns="false"
-                CssClass="table table-hover table-striped" GridLines="None" 
+                CssClass="table table-hover table-striped" GridLines="None"
                 AllowSorting="true" AllowPaging="true" PageSize="5"
                 ItemType="AccountSystem.Models.Card" DataKeyNames="Id"
                 SelectMethod="GridViewCards_GetData">
@@ -19,7 +19,7 @@
                         HeaderText="Card Number" SortExpression="CardNumber" />
                     <asp:BoundField DataField="CardType"
                         HeaderText="Type" SortExpression="CardType" />
-                    <asp:BoundField DataField="ExpirationDate" DataFormatString = "{0:d}"
+                    <asp:BoundField DataField="ExpirationDate" DataFormatString="{0:d}"
                         HeaderText="Expiration Date" SortExpression="ExpirationDate" />
                     <asp:BoundField DataField="CardStatus"
                         HeaderText="Card Status" SortExpression="CardStatus" />

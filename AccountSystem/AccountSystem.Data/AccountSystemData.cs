@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using AccountSystem.Data.Repositories;
 using AccountSystem.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AccountSystem.Data
 {
@@ -34,6 +35,16 @@ namespace AccountSystem.Data
         public IRepository<Card> Cards
         {
             get { return this.GetRepository<Card>(); }
+        }
+
+        public IRepository<Transaction> Transactions
+        {
+            get { return this.GetRepository<Transaction>(); }
+        }
+
+        public IRepository<IdentityRole> Roles
+        {
+            get { return this.GetRepository<IdentityRole>(); }
         }
 
         private IRepository<T> GetRepository<T>() where T : class
