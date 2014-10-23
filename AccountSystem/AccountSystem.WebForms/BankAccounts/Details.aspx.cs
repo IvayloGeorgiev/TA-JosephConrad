@@ -16,14 +16,27 @@ namespace AccountSystem.WebForms.BankAccounts
         {
             if (User.IsInRole("Client"))
             {
-                var userId = User.Identity.GetUserId();
+                var ibanId = Request.QueryString["id"];
+                if (ibanId == null)
+                {
+                    Response.Redirect("/");
+                }
 
                 var data = new AccountSystemData(new AccountSystemDbContext());
 
-                var accounts = data.Accounts.All().Where(x => x.OwnerId == userId).ToList();
+                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();
 
-                AccountsRepeater.DataSource = accounts;
-                AccountsRepeater.DataBind();
+                if (account == null)
+                {
+                    Response.Redirect("/Users/Details");
+                }
+                else
+                {
+                    LabelCurrency.Text = account.CurrencyType.ToString();
+                    LabelBalance.Text = account.Balance.ToString();
+                    LabelOwner.Text = account.Owner.UserName;
+                    var userCards = account.Owner.Cards.ToList();
+                }
             }
         }
     }
