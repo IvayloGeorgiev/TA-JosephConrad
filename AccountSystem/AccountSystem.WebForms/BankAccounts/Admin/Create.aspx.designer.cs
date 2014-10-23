@@ -22,13 +22,13 @@ namespace AccountSystem.WebForms.BankAccounts.Admin {
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// Balance control.
+        /// BalanceField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Balance;
+        protected global::System.Web.UI.WebControls.TextBox BalanceField;
         
         /// <summary>
         /// CurTypeList control.

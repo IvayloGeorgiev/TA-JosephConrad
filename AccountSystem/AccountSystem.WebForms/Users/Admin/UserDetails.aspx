@@ -5,7 +5,7 @@
         <h2><%: username.ToString() %>'s accounts</h2>                
         <br />
         <div class="row">
-            <a class="btn btn-primary" href="/BankAccounts/Admin/Create">Create account</a>        
+            <a class="btn btn-primary" href="/BankAccounts/Admin/Create?id=<%: userId %>">Create account</a>        
         </div>
         <br />
         <asp:Repeater ID="AccountsRepeater" runat="server">

@@ -11,17 +11,17 @@
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Balance" CssClass="col-md-2 control-label">Balance</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="BalanceField" CssClass="col-md-2 control-label">Balance</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Balance" CssClass="form-control" TextMode="Number" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Balance"
+                <asp:TextBox runat="server" ID="BalanceField" CssClass="form-control"/>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="BalanceField"
                     CssClass="text-danger" ErrorMessage="The balance field is required." />
             </div>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="CurTypeList" CssClass="col-md-2 control-label">Currency Type</asp:Label>
             <div class="col-md-10">
-                <asp:DropDownList ID="CurTypeList" DataValueField="Id" DataTextField="Name" runat="server"></asp:DropDownList>                
+                <asp:DropDownList ID="CurTypeList" runat="server"></asp:DropDownList>                
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="CurTypeList"
                     CssClass="text-danger" ErrorMessage="The currency type field is required." />
             </div>

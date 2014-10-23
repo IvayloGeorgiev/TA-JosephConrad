@@ -17,7 +17,7 @@ namespace AccountSystem.WebForms.Users
         {
             if (!User.IsInRole("Admin"))
             {
-                Response.Redirect("~/Forbidden");
+                Response.Redirect("/");
             }
             
             var userId = User.Identity.GetUserId();

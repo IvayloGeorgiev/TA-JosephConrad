@@ -18,9 +18,9 @@ namespace AccountSystem.WebForms.Users.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!User.Identity.IsAuthenticated)
+            if (!User.IsInRole("Admin"))
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect("/");
             }
 
             userId = Request.QueryString["id"];

@@ -13,19 +13,38 @@ namespace AccountSystem.WebForms.BankAccounts.Admin
 {
     public partial class Create : System.Web.UI.Page
     {
+        protected string userId;
+
         protected void Page_Load(object sender, EventArgs e)
-        {                   
-            var values = from CurrencyType enumValue in Enum.GetValues(typeof(CurrencyType))
-                            select new { ID = Convert.ToInt32(enumValue), Name = enumValue.ToString() };            
-            
+        {
+            if (!User.IsInRole("Admin"))
+            {
+                Response.Redirect("/");
+            }
+
+            userId = Request.QueryString["id"];
+            if (userId == null)
+            {
+                Response.Redirect("/"); // TODO - error message.
+            }     
+
+            var values = Enum.GetValues(typeof(CurrencyType));
+
             CurTypeList.DataSource = values;
             CurTypeList.DataBind();
-            CurTypeList.SelectedIndex = 1;            
+            CurTypeList.SelectedIndex = 0;            
         }
 
         protected void CreateAccount_Click(object sender, EventArgs e)
         {
+            var curType = (CurrencyType)Enum.Parse(typeof(CurrencyType), CurTypeList.SelectedValue, true);                   
 
+            var newAccount = new BankAccount() { Balance = decimal.Parse(BalanceField.Text), CurrencyType = curType, OwnerId = userId };
+            var data = new AccountSystemData(new AccountSystemDbContext());
+            data.Accounts.Add(newAccount);
+            data.SaveChanges();
+
+            Response.Redirect("/Users/Admin/UserDetails?" + userId);
         }
     }
 }
