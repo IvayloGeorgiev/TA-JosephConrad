@@ -12,9 +12,7 @@ using AccountSystem.Models;
 namespace AccountSystem.WebForms
 {
     public partial class Profile : System.Web.UI.Page
-    {
-        List<BankAccount> accounts;
-
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.Identity.IsAuthenticated)
@@ -26,7 +24,7 @@ namespace AccountSystem.WebForms
 
             var data = new AccountSystemData(new AccountSystemDbContext());
 
-            accounts = data.Accounts.All().Where(x => x.OwnerId == userId).ToList();
+            var accounts = data.Accounts.All().Where(x => x.OwnerId == userId).ToList();
 
             AccountsRepeater.DataSource = accounts;
             AccountsRepeater.DataBind();
