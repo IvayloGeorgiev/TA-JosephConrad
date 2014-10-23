@@ -5,7 +5,7 @@
         <h2><%: username.ToString() %>'s accounts</h2>                
         <br />
         <div class="row">
-            <a class="btn btn-primary" href="~/BankAccounts/Create">Create account</a>        
+            <a class="btn btn-primary" href="/BankAccounts/Admin/Create">Create account</a>        
         </div>
         <br />
         <asp:Repeater ID="AccountsRepeater" runat="server">
@@ -23,7 +23,7 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <a href="~/BankAccounts/Admin/Details?id=<%#: DataBinder.Eval(Container.DataItem, "Iban") %>"><%#: DataBinder.Eval(Container.DataItem, "Iban") %></a>
+                        <a href="/BankAccounts/Admin/Details?id=<%#: DataBinder.Eval(Container.DataItem, "Iban") %>"><%#: DataBinder.Eval(Container.DataItem, "Iban") %></a>
                     </td>
                     <td><%#: DataBinder.Eval(Container.DataItem, "Balance") %></td>
                     <td><%#: DataBinder.Eval(Container.DataItem, "CurrencyType") %></td>

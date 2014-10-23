@@ -19,26 +19,16 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="CurrencyType" CssClass="col-md-2 control-label">Currency Type</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="CurTypeList" CssClass="col-md-2 control-label">Currency Type</asp:Label>
             <div class="col-md-10">
-                <asp:DropDownList ID="CurrencyType" DataValueField="Id" DataTextField="Description" runat="server"></asp:DropDownList>                
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="CurrencyType"
+                <asp:DropDownList ID="CurTypeList" DataValueField="Id" DataTextField="Name" runat="server"></asp:DropDownList>                
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="CurTypeList"
                     CssClass="text-danger" ErrorMessage="The currency type field is required." />
             </div>
-        </div>
-        <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
-                <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
-            </div>
-        </div>
+        </div>        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateAccount_Click" Text="Create account" CssClass="btn btn-default" />
             </div>
         </div>
     </div>
