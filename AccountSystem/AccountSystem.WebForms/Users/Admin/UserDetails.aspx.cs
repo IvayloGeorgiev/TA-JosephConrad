@@ -26,7 +26,7 @@ namespace AccountSystem.WebForms.Users.Admin
             userId = Request.QueryString["id"];
             if (userId == null)
             {
-                userId = User.Identity.GetUserId();
+                Response.Redirect("/");
             }            
 
             var data = new AccountSystemData(new AccountSystemDbContext());

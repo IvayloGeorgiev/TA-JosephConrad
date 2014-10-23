@@ -17,6 +17,8 @@
             this.cards = new HashSet<Card>();
         }
 
+        public int Id { get; set; }
+
         public CurrencyType CurrencyType { get; set; }
 
         public virtual ICollection<Card> Cards
@@ -27,7 +29,7 @@
 
         public Guid IBAN { get; set; }
 
-        public int Id { get; set; }
+        public AccountStatus Status { get; set; }
 
         [Required]
         public string OwnerId { get; set; }

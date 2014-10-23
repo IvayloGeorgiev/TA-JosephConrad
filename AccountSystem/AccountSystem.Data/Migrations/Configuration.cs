@@ -55,7 +55,7 @@ namespace AccountSystem.Data.Migrations
                 manager.Create(user, "pesho1");
                 manager.AddToRole(user.Id, "Client");
 
-                var acc = new BankAccount() { Balance = 521.25m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id };
+                var acc = new BankAccount() { Balance = 521.25m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Aproved };
                 context.Accounts.Add(acc);
                 context.SaveChanges();
 
@@ -77,7 +77,7 @@ namespace AccountSystem.Data.Migrations
                 manager.Create(user, "gosho1");
                 manager.AddToRole(user.Id, "Client");
 
-                var acc = new BankAccount() { Balance = 100000m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id };
+                var acc = new BankAccount() { Balance = 100000m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Aproved };
                 context.Accounts.Add(acc);
                 context.SaveChanges();
 

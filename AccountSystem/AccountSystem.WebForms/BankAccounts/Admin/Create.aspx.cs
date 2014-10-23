@@ -44,7 +44,7 @@ namespace AccountSystem.WebForms.BankAccounts.Admin
             data.Accounts.Add(newAccount);
             data.SaveChanges();
 
-            Response.Redirect("/Users/Admin/UserDetails?" + userId);
+            Response.Redirect("/Users/Admin/UserDetails?id=" + userId);
         }
     }
 }
