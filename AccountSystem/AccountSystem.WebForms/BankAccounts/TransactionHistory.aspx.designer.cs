@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccountSystem.WebForms.User {
+namespace AccountSystem.WebForms.BankAccounts {
     
     
-    public partial class Cards {
+    public partial class TransactionHistory {
         
         /// <summary>
-        /// GridViewCards control.
+        /// GridViewTransactions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCards;
+        protected global::System.Web.UI.WebControls.GridView GridViewTransactions;
+        
+        /// <summary>
+        /// AccountsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater AccountsRepeater;
     }
 }

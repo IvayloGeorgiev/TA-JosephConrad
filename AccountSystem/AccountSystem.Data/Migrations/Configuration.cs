@@ -23,7 +23,7 @@ namespace AccountSystem.Data.Migrations
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 var role = new IdentityRole { Name = "Admin" };
-
+                
                 manager.Create(role);
             }
 
@@ -41,7 +41,7 @@ namespace AccountSystem.Data.Migrations
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser {UserName = "admin"};
-
+                
                 manager.Create(user, "admin1");
                 manager.AddToRole(user.Id, "Admin");
             }
@@ -55,7 +55,7 @@ namespace AccountSystem.Data.Migrations
                 manager.Create(user, "pesho1");
                 manager.AddToRole(user.Id, "Client");
 
-                var acc = new BankAccount() { Balance = 521.25m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Aproved };
+                var acc = new BankAccount() { Balance = 521.25m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Active };
                 context.Accounts.Add(acc);
                 context.SaveChanges();
 
@@ -63,6 +63,15 @@ namespace AccountSystem.Data.Migrations
                 {
                     var card = new Card() { CardNumber = ("123456789012345" + i.ToString()), CardStatus = CardStatus.Approved, CardType = CardType.MasterCard, ExpirationDate = new DateTime(2018, 5, 5), Pin = "0000", AccountId = acc.Id, OwnerId = user.Id };
                     context.Cards.Add(card);
+                    context.SaveChanges();
+                }
+
+                for (int i = 0; i < 100; i++)
+                {
+                    var second = i % 60;
+                    var minute = i / 60;
+                    var transaction = new Transaction() { AccountId = acc.Id, Reason = "Testing", TimeOfTransaction = new DateTime(2014, 4, 4, 8, minute, second), Amount = 50.00m };
+                    context.Transactions.Add(transaction);
                     context.SaveChanges();
                 }
 
@@ -77,7 +86,7 @@ namespace AccountSystem.Data.Migrations
                 manager.Create(user, "gosho1");
                 manager.AddToRole(user.Id, "Client");
 
-                var acc = new BankAccount() { Balance = 100000m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Aproved };
+                var acc = new BankAccount() { Balance = 100000m, CurrencyType = CurrencyType.BGN, OwnerId = user.Id, Status = AccountStatus.Active };
                 context.Accounts.Add(acc);
                 context.SaveChanges();
 

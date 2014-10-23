@@ -14,7 +14,7 @@ namespace AccountSystem.Models
 
         public decimal Amount { get; set; }
 
-        public string Reson { get; set; }
+        public string Reason { get; set; }
 
         public Guid? TargetIban { get; set; }
 

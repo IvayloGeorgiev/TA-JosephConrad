@@ -164,6 +164,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="BankAccounts\Admin\Create.aspx" />
     <Content Include="BankAccounts\Details.aspx" />
+    <Content Include="BankAccounts\TransactionHistory.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -212,6 +213,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
+    <Content Include="User\Cards.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -357,6 +359,13 @@
     <Compile Include="BankAccounts\Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BankAccounts\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BankAccounts\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +393,7 @@
     </Compile>
     <Compile Include="Users\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Users\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
@@ -421,9 +431,6 @@
     <Compile Include="User\Cards.aspx.cs">
       <DependentUpon>Cards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Cards.aspx.designer.cs">
-      <DependentUpon>Cards.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
