@@ -24,9 +24,9 @@
             Owner:
             <asp:Label ID="LabelOwner" runat="server"></asp:Label>
         </div>
-        <a href="/">View Cards</a>
+        <a href="/User/Cards">View Cards</a>
         <br />
-        <a href="/">View Transactions</a>
+        <a href="/User/Transactions">View Transactions</a>
     </div>
 
 </asp:Content>
