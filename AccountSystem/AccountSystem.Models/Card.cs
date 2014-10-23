@@ -9,9 +9,16 @@ namespace AccountSystem.Models
 {
     public class Card
     {
+        public Card()
+        {
+            this.CardStatus = CardStatus.Pending;
+        }
+
         public int Id { get; set; }
 
         public CardType CardType { get; set; }
+
+        public CardStatus CardStatus{ get; set; }
 
         [MinLength(16)]
         [MaxLength(16)]
@@ -28,5 +35,9 @@ namespace AccountSystem.Models
         public int AccountId { get; set; }
 
         public virtual BankAccount Account { get; set; }
+
+        public string OwnerId { get; set; }
+
+        public virtual ApplicationUser Owner { get; set; }
     }
 }

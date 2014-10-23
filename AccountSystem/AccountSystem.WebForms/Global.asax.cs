@@ -19,6 +19,12 @@
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            RegisterCustomRoutes(RouteTable.Routes);
+        }
+
+        public static void RegisterCustomRoutes(RouteCollection routes)
+        {
+            routes.MapPageRoute("CardDetailsRoute", "User/Cards/{*queryvalues}", "~/User/Cards.aspx");
         }
     }
 

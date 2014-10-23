@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -50,20 +50,24 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <% if (HttpContext.Current.User.IsInRole("Client")) {%>
-                            <li><a runat="server" href="~/Profile">Your accounts</a></li>
-                        <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>
-                            <li><a runat="server" href="~/Profile">Accounts</a></li>
-                            <li><a runat="server" href="~/Users/List">Users</a></li>                            
+                        <% if (HttpContext.Current.User.IsInRole("Client"))
+                           {%>
+                        <li><a runat="server" href="~/Profile">Your accounts</a></li>
+                        <li><a runat="server" href="~/User/Cards">Cards</a></li>
+                        <%}
+                           else if (HttpContext.Current.User.IsInRole("Admin"))
+                           {%>
+                        <li><a runat="server" href="~/Profile">Accounts</a></li>
+                        <li><a runat="server" href="~/Users/List">Users</a></li>
                         <%} %>
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>                    
+                    </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <!--<li><a runat="server" href="~/Account/Register">Register</a></li>-->
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
