@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccountSystem.WebForms.BankAccounts {
+namespace AccountSystem.WebForms.User {
     
     
-    public partial class TransactionHistory {
+    public partial class AddCard {
         
         /// <summary>
-        /// GridViewTransactions control.
+        /// tbPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewTransactions;
+        protected global::System.Web.UI.WebControls.TextBox tbPassword;
         
         /// <summary>
-        /// AccountsRepeater control.
+        /// ListBoxCardTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater AccountsRepeater;
+        protected global::System.Web.UI.WebControls.DropDownList ListBoxCardTypes;
+        
+        /// <summary>
+        /// ListBoxBankAccounts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListBoxBankAccounts;
     }
 }

@@ -213,6 +213,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
+    <Content Include="User\AddCard.aspx" />
+    <Content Include="User\CardDetails.aspx" />
     <Content Include="User\Cards.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -363,9 +365,6 @@
       <DependentUpon>TransactionHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BankAccounts\TransactionHistory.aspx.designer.cs">
-      <DependentUpon>TransactionHistory.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -427,6 +426,20 @@
     </Compile>
     <Compile Include="Users\Admin\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\AddCard.aspx.cs">
+      <DependentUpon>AddCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddCard.aspx.designer.cs">
+      <DependentUpon>AddCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CardDetails.aspx.cs">
+      <DependentUpon>CardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CardDetails.aspx.designer.cs">
+      <DependentUpon>CardDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Cards.aspx.cs">
       <DependentUpon>Cards.aspx</DependentUpon>

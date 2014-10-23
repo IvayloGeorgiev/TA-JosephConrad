@@ -13,12 +13,39 @@ namespace AccountSystem.WebForms.BankAccounts {
     public partial class Details {
         
         /// <summary>
-        /// AccountsRepeater control.
+        /// AccountDetailsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater AccountsRepeater;
+        protected global::System.Web.UI.WebControls.DetailsView AccountDetailsView;
+        
+        /// <summary>
+        /// LabelCurrency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCurrency;
+        
+        /// <summary>
+        /// LabelBalance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBalance;
+        
+        /// <summary>
+        /// LabelOwner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelOwner;
     }
 }

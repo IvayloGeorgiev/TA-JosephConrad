@@ -7,36 +7,26 @@
     </div>
 
     <div class="row">
-        <h2>Your accounts</h2>
-        <% if (HttpContext.Current.User.IsInRole("Admin")) { %>
-            <a class="btn btn-primary" href="/BankAccounts/Create">Create account</a>
-        <% } %>
-        <asp:Repeater ID="AccountsRepeater" runat="server">
-            <HeaderTemplate>
-                <table id="accountTable" class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th class="col-md-8">IBAN</th>
-                            <th class="col-md-3">Balance</th>
-                            <th class="col-md-1">Currency</th>
-                        </tr>
-                    </thead>                                    
-            </HeaderTemplate>
-
-            <ItemTemplate>
-                <tr>
-                    <td>
-                        <a href="~/BankAccounts/Details?id=<%#: DataBinder.Eval(Container.DataItem, "Iban") %>"><%#: DataBinder.Eval(Container.DataItem, "Iban") %></a>
-                    </td>
-                    <td><%#: DataBinder.Eval(Container.DataItem, "Balance") %></td>
-                    <td><%#: DataBinder.Eval(Container.DataItem, "CurrencyType") %></td>
-                </tr>
-            </ItemTemplate>
-
-            <FooterTemplate>
-                </table>
-            </FooterTemplate>
-        </asp:Repeater>
+        <h2>Account Details:</h2>
+        <div>
+            <asp:DetailsView ID="AccountDetailsView" runat="server" AutoGenerateRows="true">
+            </asp:DetailsView>
+        </div>
+        <div>
+            Currency:
+            <asp:Label ID="LabelCurrency" runat="server"></asp:Label>
+        </div>
+        <div>
+            Balance:
+            <asp:Label ID="LabelBalance" runat="server"></asp:Label>
+        </div>
+        <div>
+            Owner:
+            <asp:Label ID="LabelOwner" runat="server"></asp:Label>
+        </div>
+        <a href="/User/Cards">View Cards</a>
+        <br />
+        <a href="/User/Transactions">View Transactions</a>
     </div>
 
 </asp:Content>
