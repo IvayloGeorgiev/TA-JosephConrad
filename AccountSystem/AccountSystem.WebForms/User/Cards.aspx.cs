@@ -59,7 +59,7 @@ namespace AccountSystem.WebForms.User
         protected void CardDetails_Command(object sender, CommandEventArgs e)
         {
             var cardId = e.CommandArgument;
-            Response.Redirect("~/User/Cards/" + cardId);
+            Response.Redirect("~/User/Card/" + cardId);
         }
     }
 }

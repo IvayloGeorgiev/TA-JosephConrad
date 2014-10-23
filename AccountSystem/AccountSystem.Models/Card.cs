@@ -22,7 +22,6 @@ namespace AccountSystem.Models
 
         [MinLength(16)]
         [MaxLength(16)]
-        [Required]
         public string CardNumber { get; set; }
 
         [MinLength(4)]

@@ -212,6 +212,9 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
+    <Content Include="User\AddCard.aspx" />
+    <Content Include="User\CardDetails.aspx" />
+    <Content Include="User\Cards.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -384,6 +387,7 @@
     </Compile>
     <Compile Include="Users\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Users\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
@@ -418,12 +422,23 @@
     <Compile Include="Users\Admin\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\AddCard.aspx.cs">
+      <DependentUpon>AddCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddCard.aspx.designer.cs">
+      <DependentUpon>AddCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CardDetails.aspx.cs">
+      <DependentUpon>CardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CardDetails.aspx.designer.cs">
+      <DependentUpon>CardDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Cards.aspx.cs">
       <DependentUpon>Cards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Cards.aspx.designer.cs">
-      <DependentUpon>Cards.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
