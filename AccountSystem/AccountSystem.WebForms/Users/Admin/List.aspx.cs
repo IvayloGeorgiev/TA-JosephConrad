@@ -28,37 +28,5 @@ namespace AccountSystem.WebForms.Users
             UsersRepeater.DataSource = users;
             UsersRepeater.DataBind();
         }
-
-        protected void FindUser(object sender, EventArgs e)
-        {
-            GetUser(DropDownListFindBy.SelectedItem.Text, TextBoxFindByUserName.Text);
-        }
-
-        private void GetUser(string findBy, string searchData)
-        {
-            var data = new AccountSystemData(new AccountSystemDbContext());
-
-            if (findBy == "username")
-            {
-                var user = data.Users.All().Where(x => x.UserName == searchData).FirstOrDefault();
-                Redirect(user);
-            }
-            else if (findBy == "email")
-            {
-                var user = data.Users.All().Where(x => x.Email == searchData).FirstOrDefault();
-                Redirect(user);
-            }
-        }
-
-        private void Redirect(AccountSystem.Models.ApplicationUser user)
-        {
-            if (user != null)
-            {
-                Response.Redirect("UserDetails?id=" + user.Id);
-            }
-            else
-            {
-            }
-        }
     }
 }
