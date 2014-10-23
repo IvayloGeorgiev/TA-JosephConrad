@@ -215,11 +215,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
-<<<<<<< HEAD
-=======
     <Content Include="User\AddCard.aspx" />
     <Content Include="User\CardDetails.aspx" />
->>>>>>> origin/master
     <Content Include="User\Cards.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
