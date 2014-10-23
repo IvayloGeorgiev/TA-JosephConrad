@@ -26,9 +26,9 @@ namespace AccountSystem.Data
             get { return this.GetRepository<ApplicationUser>(); }
         }
 
-        public IRepository<Account> Accounts
+        public IRepository<BankAccount> Accounts
         {
-            get { return this.GetRepository<Account>(); }
+            get { return this.GetRepository<BankAccount>(); }
         }
 
         public IRepository<Card> Cards

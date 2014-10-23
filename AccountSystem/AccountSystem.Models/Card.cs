@@ -21,12 +21,12 @@ namespace AccountSystem.Models
         [MinLength(4)]
         [MaxLength(6)]
         [Required]
-        public string Pin { get; set; }
-
-        public virtual ApplicationUser Holder { get; set; }
+        public string Pin { get; set; }        
 
         public DateTime? ExpirationDate { get; set; }
 
-        public virtual Account Account { get; set; }
+        public int AccountId { get; set; }
+
+        public virtual BankAccount Account { get; set; }
     }
 }

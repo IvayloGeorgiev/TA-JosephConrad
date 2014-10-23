@@ -22,7 +22,7 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AccountSystemDbContext, Configuration>());
         }
 
-        public IDbSet<Account> Accounts { get; set; }
+        public IDbSet<BankAccount> Accounts { get; set; }
 
         public IDbSet<Card> Cards { get; set; }
 

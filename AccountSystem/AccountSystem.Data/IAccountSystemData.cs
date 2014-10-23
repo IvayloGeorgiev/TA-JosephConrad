@@ -13,7 +13,7 @@
     {
         IRepository<ApplicationUser> Users { get; }
 
-        IRepository<Account> Accounts { get; }
+        IRepository<BankAccount> Accounts { get; }
 
         IRepository<Card> Cards { get; }
 

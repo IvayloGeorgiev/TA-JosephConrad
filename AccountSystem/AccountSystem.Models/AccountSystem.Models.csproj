@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
+    <Compile Include="BankAccount.cs" />
     <Compile Include="CardType.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="ApplicationUser.cs" />

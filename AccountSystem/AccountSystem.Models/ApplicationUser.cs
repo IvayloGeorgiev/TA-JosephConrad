@@ -12,13 +12,13 @@
 
     public class ApplicationUser : IdentityUser
     {
-        private ICollection<Account> accounts;
+        private ICollection<BankAccount> accounts;
         private ICollection<Card> cards;
 
         public ApplicationUser()
             : base()
         {
-            this.accounts = new HashSet<Account>();
+            this.accounts = new HashSet<BankAccount>();
             this.cards = new HashSet<Card>();            
         }
 
@@ -39,7 +39,7 @@
 
         public virtual Address Address { get; set; }        
 
-        public virtual ICollection<Account> Accounts
+        public virtual ICollection<BankAccount> Accounts
         {
             get { return this.accounts; }
             set { this.accounts = value; }

@@ -6,11 +6,11 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Account
+    public class BankAccount
     {
         private ICollection<Card> cards;
 
-        public Account()
+        public BankAccount()
         {
             this.IBAN = Guid.NewGuid();
             this.cards = new HashSet<Card>();
@@ -28,7 +28,7 @@
 
         public int Id { get; set; }
 
-        public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
 
         public virtual ApplicationUser Owner { get; set; }
 
