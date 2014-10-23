@@ -8,9 +8,7 @@
     using System.Web.Routing;
     using System.Web.Security;
     using System.Web.SessionState;
-
-    using Ninject.Web.Common;
-    using Ninject;
+   
     using AccountSystem.Data;
     using System.Reflection;
 

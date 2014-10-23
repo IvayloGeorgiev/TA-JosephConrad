@@ -19,8 +19,7 @@
             : base()
         {
             this.accounts = new HashSet<Account>();
-            this.cards = new HashSet<Card>();
-            this.UserRole = UserRole.Client;
+            this.cards = new HashSet<Card>();            
         }
 
         public ClaimsIdentity GenerateUserIdentity(UserManager<ApplicationUser> manager)
@@ -35,10 +34,10 @@
         {
             return Task.FromResult(GenerateUserIdentity(manager));
         }
+        
+        public int? AddressId { get; set; }
 
-        public ClientInformation ClientInformation { get; set; }
-
-        public UserRole UserRole { get; set; }
+        public virtual Address Address { get; set; }        
 
         public virtual ICollection<Account> Accounts
         {

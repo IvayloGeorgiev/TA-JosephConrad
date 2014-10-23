@@ -26,6 +26,8 @@
 
         public IDbSet<Card> Cards { get; set; }
 
+        public IDbSet<Transaction> Transactions { get; set; }
+
         public static AccountSystemDbContext Create()
         {
             return new AccountSystemDbContext();
