@@ -14,6 +14,11 @@
             <asp:TextBox ID="TextBoxFindUser" runat="server"></asp:TextBox>
             <asp:Button ID="ButtonFindUser" Text="Find" runat="server" OnClick="FindUser" />
         </div>
+        <div>
+            Filter users by username 
+            <asp:TextBox ID="TextBoxFilter" runat="server"></asp:TextBox>
+            <asp:Button ID="ButtonFilterUsers" Text="Filter" runat="server" OnClick="FilterUsers" />
+        </div>
         <asp:Repeater ID="UsersRepeater" runat="server"            
             ItemType="AccountSystem.Models.ApplicationUser">
             <HeaderTemplate>

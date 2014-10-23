@@ -13,6 +13,8 @@ namespace AccountSystem.WebForms.Users
 {
     public partial class List : System.Web.UI.Page
     {
+        private AccountSystemData data = new AccountSystemData(new AccountSystemDbContext());
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.IsInRole("Admin"))
@@ -29,6 +31,13 @@ namespace AccountSystem.WebForms.Users
             UsersRepeater.DataBind();
         }
 
+        protected void FilterUsers(object sender, EventArgs e)
+        {
+            var users = data.Users.All().Where(x => x.UserName.Contains(TextBoxFilter.Text)).ToList();
+            UsersRepeater.DataSource = users;
+            UsersRepeater.DataBind();
+        }
+
         protected void FindUser(object sender, EventArgs e)
         {
             GetUser(DropDownListFindBy.SelectedItem.Text, TextBoxFindUser.Text);
@@ -36,8 +45,6 @@ namespace AccountSystem.WebForms.Users
 
         private void GetUser(string findBy, string searchData)
         {
-            var data = new AccountSystemData(new AccountSystemDbContext());
-
             if (findBy == "username")
             {
                 var user = data.Users.All().Where(x => x.UserName == searchData).FirstOrDefault();
