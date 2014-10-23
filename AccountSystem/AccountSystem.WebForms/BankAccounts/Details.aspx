@@ -8,8 +8,8 @@
 
     <div class="row">
         <h2>Your accounts</h2>
-        <% if (HttpContext.Current.User.IsInRole("admin")) { %>
-            <a class="btn btn-primary" href="~/BankAccounts/Create">Create account</a>
+        <% if (HttpContext.Current.User.IsInRole("Admin")) { %>
+            <a class="btn btn-primary" href="/BankAccounts/Create">Create account</a>
         <% } %>
         <asp:Repeater ID="AccountsRepeater" runat="server">
             <HeaderTemplate>
