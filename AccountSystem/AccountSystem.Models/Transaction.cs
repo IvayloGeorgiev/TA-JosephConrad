@@ -16,7 +16,7 @@ namespace AccountSystem.Models
 
         public string Reason { get; set; }
 
-        public Guid? TargetIban { get; set; }
+        public string TargetIban { get; set; }
 
         public virtual BankAccount Account { get; set; }
 

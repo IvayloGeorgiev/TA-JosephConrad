@@ -10,51 +10,42 @@
 namespace AccountSystem.WebForms.BankAccounts {
     
     
-    public partial class Details {
+    public partial class Transfer {
         
         /// <summary>
-        /// AccountDetailsView control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView AccountDetailsView;
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// LabelCurrency control.
+        /// AmountField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCurrency;
+        protected global::System.Web.UI.WebControls.TextBox AmountField;
         
         /// <summary>
-        /// LabelBalance control.
+        /// TargetIBANField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelBalance;
+        protected global::System.Web.UI.WebControls.TextBox TargetIBANField;
         
         /// <summary>
-        /// LabelOwner control.
+        /// ReasonField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelOwner;
-        
-        /// <summary>
-        /// LabelStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelStatus;
+        protected global::System.Web.UI.WebControls.TextBox ReasonField;
     }
 }

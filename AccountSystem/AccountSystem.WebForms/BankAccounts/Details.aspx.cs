@@ -12,11 +12,13 @@ namespace AccountSystem.WebForms.BankAccounts
 {
     public partial class Details : System.Web.UI.Page
     {
+        protected string ibanId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (User.IsInRole("Client"))
             {
-                var ibanId = Request.QueryString["id"];
+                ibanId = Request.QueryString["id"];
                 if (ibanId == null)
                 {
                     Response.Redirect("/");
@@ -35,8 +37,14 @@ namespace AccountSystem.WebForms.BankAccounts
                     LabelCurrency.Text = account.CurrencyType.ToString();
                     LabelBalance.Text = account.Balance.ToString();
                     LabelOwner.Text = account.Owner.UserName;
+                    LabelStatus.Text = account.Status.ToString();
                     var userCards = account.Owner.Cards.ToList();
                 }
+            }
+
+            else
+            {
+                Response.Redirect("/");
             }
         }
     }

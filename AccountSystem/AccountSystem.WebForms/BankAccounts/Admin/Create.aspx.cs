@@ -37,14 +37,17 @@ namespace AccountSystem.WebForms.BankAccounts.Admin
 
         protected void CreateAccount_Click(object sender, EventArgs e)
         {
-            var curType = (CurrencyType)Enum.Parse(typeof(CurrencyType), CurTypeList.SelectedValue, true);                   
+            if (Page.IsValid) 
+            { 
+                var curType = (CurrencyType)Enum.Parse(typeof(CurrencyType), CurTypeList.SelectedValue, true);                   
 
-            var newAccount = new BankAccount() { Balance = decimal.Parse(BalanceField.Text), CurrencyType = curType, OwnerId = userId };
-            var data = new AccountSystemData(new AccountSystemDbContext());
-            data.Accounts.Add(newAccount);
-            data.SaveChanges();
+                var newAccount = new BankAccount() { Balance = decimal.Parse(BalanceField.Text), CurrencyType = curType, OwnerId = userId, Status = AccountStatus.Active };
+                var data = new AccountSystemData(new AccountSystemDbContext());
+                data.Accounts.Add(newAccount);
+                data.SaveChanges();
 
-            Response.Redirect("/Users/Admin/UserDetails?id=" + userId);
+                Response.Redirect("/Users/Admin/UserDetails?id=" + userId);
+            }
         }
     }
 }

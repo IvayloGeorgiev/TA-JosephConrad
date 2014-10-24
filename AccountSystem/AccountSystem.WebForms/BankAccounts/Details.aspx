@@ -24,9 +24,16 @@
             Owner:
             <asp:Label ID="LabelOwner" runat="server"></asp:Label>
         </div>
+        <div>
+            Status:
+            <asp:Label ID="LabelStatus" runat="server"></asp:Label>
+        </div>
         <a href="/User/Cards">View Cards</a>
         <br />
-        <a href="/User/Transactions">View Transactions</a>
+        <a href="/BankAccounts/TransactionHistory?id=<%: ibanId %>">View Transactions</a>
+        <br />
+        <a href="/BankAccounts/Transfer?id=<%: ibanId %>">Transfer funds</a>
+        <br />
     </div>
 
 </asp:Content>

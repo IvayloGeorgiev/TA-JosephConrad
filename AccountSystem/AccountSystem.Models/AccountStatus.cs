@@ -3,6 +3,8 @@
     public enum AccountStatus
     {
         Active,
-        Frozen        
+        Frozen,
+        Pending,
+        Closed
     }
 }
