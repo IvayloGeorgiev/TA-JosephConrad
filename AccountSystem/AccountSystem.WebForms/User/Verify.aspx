@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verify.aspx.cs" Inherits="AccountSystem.WebForms.User.Verify" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="jumbotron">
+        <h2>Verification Documents</h2>
+    </div>
     <asp:Panel ID="FormError" runat="server" Visible="false" CssClass="alert alert-dismissable alert-danger">
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
     </asp:Panel>

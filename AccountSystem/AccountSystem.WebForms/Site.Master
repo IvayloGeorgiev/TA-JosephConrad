@@ -61,7 +61,7 @@
                         <li><a runat="server" href="~/Users/Admin/PendingCards">Pending Cards</a></li>
                         <%} %>
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
+                        <%--<li><a runat="server" href="~/About">About</a></li>--%>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="container body-content">
-            <% if (!isIdentityVerified)
+            <% if (!isIdentityVerified && this.Context.User.Identity.IsAuthenticated && !HttpContext.Current.User.IsInRole("Admin"))
                {%>
             <div class="alert alert-dismissable alert-warning">
                 <button type="button" class="close" data-dismiss="alert">×</button>
