@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,22 +48,13 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">Account System</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <% if (HttpContext.Current.User.IsInRole("Client"))
-                           {%>
-                        <li><a runat="server" href="~/Users/Details.aspx">Your accounts</a></li>
-                        <li><a runat="server" href="~/User/Cards.aspx">Cards</a></li>
-                        <%}
-                           else if (HttpContext.Current.User.IsInRole("Admin"))
-                           {%>
-                        <li><a runat="server" href="~/Users/Admin/List">Users</a></li>
-                        <li><a runat="server" href="~/Users/Admin/PendingCards">Pending Cards</a></li>
-                        <%} %>
-                        <%--<li><a runat="server" href="~/About">About</a></li>--%>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+                <div class="navbar-collapse collapse row">
+                    <asp:Menu runat="server" ID="Menu" StaticMenuStyle-CssClass="nav navbar-nav"
+                        DataSourceID="SiteMapDataSource" Orientation="Horizontal"
+                        StaticDisplayLevels="2">
+                    </asp:Menu>
+                    <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" />
+                                   
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -79,7 +70,7 @@
                                 </li>
                             </ul>
                         </LoggedInTemplate>
-                    </asp:LoginView>
+                    </asp:LoginView>                    
                 </div>
             </div>
         </div>

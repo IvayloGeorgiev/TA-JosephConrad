@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="Home">    
+    <siteMapNode url="~/Users/Admin/List.aspx" title="Users" roles="Admin">
+      <siteMapNode url="~/Users/Create.aspx" title="Create" roles="Admin" />      
+    </siteMapNode>
+    <siteMapNode url="~/Users/Admin/PendingCards.aspx" title="Pending Cards"  roles="Admin" />
+    <siteMapNode url="~/Users/Details.aspx" title="Your accounts" roles="Client"></siteMapNode>
+    <siteMapNode url="~/User/Cards.aspx" title="Cards" roles="Client">
+      <siteMapNode url="~/User/Card/Add.aspx" title="Cards" roles="Client" />
+    </siteMapNode>    
+    <siteMapNode url="~/Contact.aspx" title="Contact" />
+  </siteMapNode>
+</siteMap>

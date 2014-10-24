@@ -2,6 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Your application description page.</h3>
-    <p>Use this area to provide additional information.</p>
+    <h3>Welcome to the Banking Account Management System</h3>
+    <p>We provide a flexibale and extendable platform for all your online banking needs.</p>
 </asp:Content>
