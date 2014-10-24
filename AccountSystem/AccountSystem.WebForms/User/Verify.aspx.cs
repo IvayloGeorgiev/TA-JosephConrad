@@ -31,7 +31,12 @@
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {
-            if (FileUploadControl.HasFile)
+            var user = this.appData.Users.All().FirstOrDefault(u => u.Id == this.currentUserId);
+            if (FileUploadControl.HasFile && user.Documents.Count > 10)
+            {
+                ShowError("Upload status: Documents limit reached!");
+            }
+            else if (FileUploadControl.HasFile)
             {
                 try
                 {
@@ -39,13 +44,15 @@
                     {
                         if (FileUploadControl.PostedFile.ContentLength < 5120000)
                         {
-                            var user = this.appData.Users.All().FirstOrDefault(u => u.Id == this.currentUserId);
                             string filename = Path.GetFileName(FileUploadControl.FileName);
+                            var fileExt = Path.GetExtension(FileUploadControl.FileName);
                             CreateDirIfNotExists("/Uploaded_Documents/" + user.UserName);
                             var uploadPath = Server.MapPath("~/Uploaded_Documents/") + user.UserName + "/";
-                            FileUploadControl.SaveAs(uploadPath + filename);
+                            var newFileName = Path.GetRandomFileName() + fileExt;
+                            FileUploadControl.SaveAs(uploadPath + newFileName);
                             user.Documents.Add(new FileUploadData()
                             {
+                                FileName = newFileName,
                                 FileType = FileUploadControl.PostedFile.ContentType,
                                 UploadDate = DateTime.Now,
                                 User = user
@@ -106,6 +113,46 @@
         {
             this.FormSuccess.Visible = true;
             this.SuccessLabel.Text = message;
+        }
+
+        protected void DocumentDownload_Command(object sender, CommandEventArgs e)
+        {
+            var fileParam = e.CommandArgument as string;
+            if (string.IsNullOrEmpty(fileParam))
+            {
+                return;
+            }
+
+            int fileId;
+            if (!int.TryParse(fileParam, out fileId))
+            {
+                return;
+            }
+
+            var currentUser = this.appData.Users.All().FirstOrDefault(u => u.UserName == this.User.Identity.Name);
+            var requestedFile = currentUser.Documents.FirstOrDefault(d => d.Id == fileId);
+            if (requestedFile == null)
+            {
+                return;
+            }
+
+            Response.AddHeader("Content-Type", "application/octet-stream");
+            Response.AddHeader("Content-Transfer-Encoding", "Binary");
+            Response.AddHeader("Content-disposition", "attachment; filename=\"" + requestedFile.FileName + "\"");
+            Response.WriteFile(HttpRuntime.AppDomainAppPath + @"Uploaded_Documents\\" + currentUser.UserName + "\\" + requestedFile.FileName);
+            Response.End();
+        }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<AccountSystem.Models.FileUploadData> GridViewCards_GetData()
+        {
+            var currentUser = this.appData.Users.All().FirstOrDefault(u => u.UserName == this.User.Identity.Name);
+            return currentUser.Documents.AsQueryable();
         }
     }
 }
