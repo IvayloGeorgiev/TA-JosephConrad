@@ -13,7 +13,8 @@ namespace AccountSystem.WebForms.Users.Admin
     {
         protected string cardId;
         private Card card;
-        IAccountSystemData data;
+        private IAccountSystemData data;
+        private static Random rand = new Random();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,6 +31,10 @@ namespace AccountSystem.WebForms.Users.Admin
 
             this.data = new AccountSystemData(new AccountSystemDbContext());
             this.card = data.Cards.Find(int.Parse(cardId));
+            if (this.card == null)
+            {
+                Response.Redirect("/");
+            }                        
 
             ExpirationDate.Text = card.ExpirationDate.Value.ToString();
             CardNumber.Text = card.CardNumber.ToString();
@@ -44,13 +49,13 @@ namespace AccountSystem.WebForms.Users.Admin
         protected void Approve(object sender, EventArgs e)
         {
             this.card.CardStatus = CardStatus.Approved;
-            card.CardNumber = "0000000000000000";
+            card.CardNumber = GenerateCardNumber();
             card.ExpirationDate = DateTime.Now.AddYears(2);
             Update();
         }
         protected void Decline(object sender, EventArgs e)
         {
-            this.card.CardStatus = CardStatus.Expired;
+            this.card.CardStatus = CardStatus.Rejected;
             card.CardNumber = "0000000000000000";
             card.ExpirationDate = DateTime.Now;
             Update();
@@ -63,6 +68,16 @@ namespace AccountSystem.WebForms.Users.Admin
             LabelCardStatus.Text = card.CardStatus.ToString();
             this.data.Cards.Update(card);
             this.data.SaveChanges();
+        }
+
+        private string GenerateCardNumber()
+        {
+            string result = string.Empty;
+            for (int i = 0; i < 16; i++)
+            {
+                result += rand.Next(0, 10).ToString();
+            }
+            return result;
         }
     }
 }

@@ -27,26 +27,25 @@
                 <asp:Button ID="ButtonFilterUsers" Text="Filter" runat="server" CssClass="btn btn-primary" OnClick="FilterUsers" />
             </div>
         </div>
-        <asp:Repeater ID="UsersRepeater" runat="server"
-            ItemType="AccountSystem.Models.ApplicationUser">
+        <asp:Repeater ID="UsersRepeater" runat="server">
             <HeaderTemplate>
                 <table id="usersTable" class="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th class="col-md-6">Id</th>
-                            <th class="col-md-6">Username</th>
-                            <th class="col-md-6">Email</th>
+                        <tr>                            
+                            <th class="col-md-3">Username</th>
+                            <th class="col-md-3">Email</th>
+                            <th class="col-md-3">Total Balance</th>
+                            <th class="col-md-3">View</th>
                         </tr>
                     </thead>
             </HeaderTemplate>
 
             <ItemTemplate>
-                <tr>
-                    <td>
-                        <a href="/Users/Admin/UserDetails?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>"><%#: DataBinder.Eval(Container.DataItem, "Id") %></a>
-                    </t>
+                <tr>                    
                     <td><%#: DataBinder.Eval(Container.DataItem, "Username") %></td>
                     <td><%#: DataBinder.Eval(Container.DataItem, "Email") %></td>
+                    <td><%#: DataBinder.Eval(Container.DataItem, "TotalBalance") %></td>
+                    <td><a class="btn btn-primary" href="/Users/Admin/UserDetails?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>">View</a></td>
                 </tr>
             </ItemTemplate>
 

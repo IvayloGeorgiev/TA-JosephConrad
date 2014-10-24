@@ -28,37 +28,40 @@ namespace AccountSystem.WebForms.Users
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            Address adress = new Address();
-            adress.City = TextBoxCity.Text;
-            adress.Country = TextBoxCountry.Text;
-            adress.PostalCode = TextBoxPostalCode.Text;
-            adress.Street = TextBoxStreet.Text;
-            string phoneNumber = TextBoxPhoneNumber.Text;
-            string role = DropDownListRoles.SelectedItem.Text;
-
-            var user = new ApplicationUser() { UserName = TextBoxUserName.Text, Email = Email.Text, Address = adress, PhoneNumber = phoneNumber };
-            IdentityResult result = manager.Create(user, Password.Text);
-            if (result.Succeeded)
+            if (Page.IsValid)
             {
-                if (role == "Admin")
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                Address adress = new Address();
+                adress.City = TextBoxCity.Text;
+                adress.Country = TextBoxCountry.Text;
+                adress.PostalCode = TextBoxPostalCode.Text;
+                adress.Street = TextBoxStreet.Text;
+                string phoneNumber = TextBoxPhoneNumber.Text;
+                string role = DropDownListRoles.SelectedItem.Text;
+
+                var user = new ApplicationUser() { UserName = TextBoxUserName.Text, Email = Email.Text, Address = adress, PhoneNumber = phoneNumber };
+                IdentityResult result = manager.Create(user, Password.Text);
+                if (result.Succeeded)
                 {
-                    manager.AddToRole(user.Id, role);
-                    CreatedMessage.Text = "Admin Created.";
-                }
-                else if (role == "Client")
-                {
-                    manager.AddToRole(user.Id, role);
-                    CreatedMessage.Text = "Client Created.";
+                    if (role == "Admin")
+                    {
+                        manager.AddToRole(user.Id, role);
+                        CreatedMessage.Text = "Admin Created.";
+                    }
+                    else if (role == "Client")
+                    {
+                        manager.AddToRole(user.Id, role);
+                        CreatedMessage.Text = "Client Created.";
+                    }
+                    else
+                    {
+                        CreatedMessage.Text = "User Created.";
+                    }
                 }
                 else
                 {
-                    CreatedMessage.Text = "User Created.";
+                    ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
-            }
-            else
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
     }

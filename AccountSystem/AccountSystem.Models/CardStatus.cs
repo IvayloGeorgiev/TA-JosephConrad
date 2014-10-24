@@ -4,6 +4,7 @@
     {
         Expired,
         Pending,
-        Approved
+        Approved,
+        Rejected
     }
 }

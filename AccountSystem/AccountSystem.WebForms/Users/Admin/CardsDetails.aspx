@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="CardsDetails.aspx.cs" Inherits="AccountSystem.WebForms.Users.Admin.CardsDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Card details" MasterPageFile="~/Site.Master" CodeBehind="CardsDetails.aspx.cs" Inherits="AccountSystem.WebForms.Users.Admin.CardsDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -31,8 +31,8 @@
             <br />Card Type: 
             <asp:Label runat="server" ID="LabelCardType"></asp:Label>
             <br />
-            <asp:Button ID="ButtonDecline" Text="Decline" OnClick="Decline" runat="server" class="btn btn-primary btn-lg"></asp:Button>
-            <asp:Button ID="ButtonApprove" Text="Approve" OnClick="Approve" runat="server" class="btn btn-primary btn-lg"></asp:Button>
+            <asp:Button ID="ButtonDecline" Text="Decline" OnClick="Decline" runat="server" CssClass="btn btn-primary"></asp:Button>
+            <asp:Button ID="ButtonApprove" Text="Approve" OnClick="Approve" runat="server" CssClass="btn btn-primary"></asp:Button>
         </div>
     </div>
 

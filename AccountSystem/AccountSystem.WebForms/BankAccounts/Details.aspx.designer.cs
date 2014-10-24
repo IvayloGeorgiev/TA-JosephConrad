@@ -22,31 +22,31 @@ namespace AccountSystem.WebForms.BankAccounts {
         protected global::System.Web.UI.WebControls.DetailsView AccountDetailsView;
         
         /// <summary>
-        /// LabelCurrency control.
+        /// LiteralCurrency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCurrency;
+        protected global::System.Web.UI.WebControls.Literal LiteralCurrency;
         
         /// <summary>
-        /// LabelBalance control.
+        /// LiteralBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelBalance;
+        protected global::System.Web.UI.WebControls.Literal LiteralBalance;
         
         /// <summary>
-        /// LabelOwner control.
+        /// LiteralOwner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelOwner;
+        protected global::System.Web.UI.WebControls.Literal LiteralOwner;
         
         /// <summary>
         /// LabelStatus control.
@@ -56,5 +56,23 @@ namespace AccountSystem.WebForms.BankAccounts {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelStatus;
+        
+        /// <summary>
+        /// TransactionHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton TransactionHistory;
+        
+        /// <summary>
+        /// Transfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Transfer;
     }
 }

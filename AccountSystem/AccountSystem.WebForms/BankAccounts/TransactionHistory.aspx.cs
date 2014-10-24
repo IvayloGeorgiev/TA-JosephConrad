@@ -7,6 +7,9 @@
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     using AccountSystem.Data;
     using AccountSystem.Models;
 
@@ -17,11 +20,27 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (User.Identity == null)
+            {
+                Response.Redirect("/");
+            }
+
             ibanId = Request.QueryString["id"];
             if (ibanId == null)
             {
-                Response.Redirect("/BankAccounts/Details"); // TODO - error message.
-            }  
+                Response.Redirect("/"); // TODO - error message.
+            }
+
+            var curAccount = data.Accounts.All().Where(a => a.IBAN.ToString() == ibanId).FirstOrDefault();
+            if (curAccount == null)
+            {
+                Response.Redirect("/");
+            }
+
+            if (curAccount.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                Response.Redirect("/");
+            }
         }
 
         public IQueryable<AccountSystem.Models.Transaction> GridViewTransactions_GetData()

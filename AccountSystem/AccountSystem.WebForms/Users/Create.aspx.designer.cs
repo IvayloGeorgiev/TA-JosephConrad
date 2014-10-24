@@ -58,6 +58,15 @@ namespace AccountSystem.WebForms.Users {
         protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
+        /// RegularExpressionValidatorEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEmail;
+        
+        /// <summary>
         /// Password control.
         /// </summary>
         /// <remarks>
