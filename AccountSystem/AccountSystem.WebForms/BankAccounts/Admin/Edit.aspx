@@ -9,18 +9,7 @@
     <div class="form-horizontal">
         <h4>Create a new bank account</h4>
         <hr />
-        <asp:ValidationSummary runat="server" CssClass="text-danger" />
-        <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="BalanceField" CssClass="col-md-2 control-label">Balance</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox runat="server" ID="BalanceField" CssClass="form-control"/>
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="BalanceField"
-                    CssClass="text-danger" ErrorMessage="The balance field is required." />
-                <asp:CustomValidator runat="server" ControlToValidate="BalanceField"
-                    CssClass="text-danger" ErrorMessage="The balance field should be a valid decimal number" 
-                    OnServerValidate="DecimalValidator_ServerValidate"/>
-            </div>
-        </div>
+        <asp:ValidationSummary runat="server" CssClass="text-danger" />        
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="AccountStatusField" CssClass="col-md-2 control-label">Currency Type</asp:Label>
             <div class="col-md-10">

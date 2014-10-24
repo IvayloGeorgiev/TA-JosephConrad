@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using AccountSystem.Data;
+using AccountSystem.Models;
 
 
 namespace AccountSystem.WebForms.Users
@@ -27,14 +28,18 @@ namespace AccountSystem.WebForms.Users
 
             var data = new AccountSystemData(new AccountSystemDbContext());
             adminRoleId = data.Roles.All().FirstOrDefault(r => r.Name == "Admin").Id;
-            var users = data.Users.All().Where(u => !(u.Roles.Any(r => r.RoleId == adminRoleId))).ToList();
+            var users = this.GetClients()
+                .Select(u => new { Username = u.UserName, Id = u.Id, Email = u.Email, TotalBalance = u.Accounts.Sum(a => a.Balance) })
+                .ToList();
             UsersRepeater.DataSource = users;
             UsersRepeater.DataBind();
         }
 
         protected void FilterUsers(object sender, EventArgs e)
         {
-            var users = data.Users.All().Where(x => x.UserName.Contains(TextBoxFilter.Text)).ToList();
+            var users = GetClients().Where(x => x.UserName.Contains(TextBoxFilter.Text))
+                .Select(u => new { Username = u.UserName, Id = u.Id, Email = u.Email, TotalBalance = u.Accounts.Sum(a => a.Balance) })
+                .ToList();
             UsersRepeater.DataSource = users;
             UsersRepeater.DataBind();
         }
@@ -48,14 +53,19 @@ namespace AccountSystem.WebForms.Users
         {
             if (findBy == "username")
             {
-                var user = data.Users.All().Where(x => x.UserName == searchData).FirstOrDefault();
+                var user = GetClients().Where(x => x.UserName == searchData).FirstOrDefault();
                 Redirect(user);
             }
             else if (findBy == "email")
             {
-                var user = data.Users.All().Where(x => x.Email.Contains(searchData)).FirstOrDefault();
+                var user = GetClients().Where(x => x.Email.Contains(searchData)).FirstOrDefault();
                 Redirect(user);
             }
+        }
+
+        private IQueryable<ApplicationUser> GetClients()
+        {
+            return data.Users.All().Where(u => !(u.Roles.Any(r => r.RoleId == adminRoleId)));
         }
 
         private void Redirect(AccountSystem.Models.ApplicationUser user)
@@ -63,10 +73,7 @@ namespace AccountSystem.WebForms.Users
             if (user != null)
             {
                 Response.Redirect("UserDetails?id=" + user.Id);
-            }
-            else
-            {
-            }
+            }            
         }
     }
 }

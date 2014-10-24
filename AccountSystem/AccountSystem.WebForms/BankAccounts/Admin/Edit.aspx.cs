@@ -42,9 +42,7 @@
 
             AccountStatusField.DataSource = values;
             AccountStatusField.DataBind();
-            AccountStatusField.SelectedIndex = (int)account.Status.GetTypeCode();
-
-            BalanceField.Text = account.Balance.ToString();
+            AccountStatusField.SelectedIndex = (int)account.Status.GetTypeCode();            
         }
 
         protected void EditAccount_Click(object sender, EventArgs e)
@@ -53,27 +51,13 @@
             {
                 var currentStatus = (AccountStatus)Enum.Parse(typeof(AccountStatus), AccountStatusField.SelectedValue, true);
 
-                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();
-                account.Balance = decimal.Parse(BalanceField.Text);
+                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();                
                 account.Status = currentStatus;
                 
                 data.Accounts.Update(account);
                 data.SaveChanges();
 
                 Response.Redirect("/Users/Admin/UserDetails?id=" + account.OwnerId);
-            }
-        }
-
-        protected void DecimalValidator_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            try
-            {
-                decimal.Parse(args.Value);
-                args.IsValid = true;
-            }
-            catch (Exception ex)
-            {
-                args.IsValid = false;
             }
         }
     }

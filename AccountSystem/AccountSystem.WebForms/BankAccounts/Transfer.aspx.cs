@@ -41,6 +41,11 @@
             {
                 Response.Redirect("/");
             }
+
+            if (curAccount.Status != AccountStatus.Active)
+            {
+                Response.Redirect("/BankAccounts/Details?id=" + ibanId);
+            }
         }
 
         protected void TransferFunds_Click(object sender, EventArgs e)
