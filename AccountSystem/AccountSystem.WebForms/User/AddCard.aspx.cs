@@ -43,6 +43,8 @@ namespace AccountSystem.WebForms.User
 
             if (fieldCardType == null || fieldPassword == null || fieldBankAccount == null)
             {
+                this.ErrorMessage.Text = "Fill all fields!";
+                return;
                 //Empty input
             }
 
@@ -54,14 +56,20 @@ namespace AccountSystem.WebForms.User
             var selectedAccount = currentUser.Accounts.FirstOrDefault(a => a.IBAN.ToString() == accountIban);
             if (selectedAccount == null)
             {
+                this.ErrorMessage.Text = "Incorrect iban";
+                return;
                 //Missing or not account to this user
             }
             else if (cardType == null)
             {
+                this.ErrorMessage.Text = "Incorrect card type";
+                return;
                 //Invalid card type
             }
             else if (String.IsNullOrEmpty(selectedPassword) || selectedPassword.Length < 4 || selectedPassword.Length > 6)
             {
+                this.ErrorMessage.Text = "Incorrect password length(4-6 symbols)";
+                return;
                 //Invalid password
             }
 

@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
         <legend>Add Card</legend>
+        <p class="text-danger">
+            <asp:Literal runat="server" ID="ErrorMessage" />
+        </p>
+        <p style="color: lightblue">
+            <asp:Literal runat="server" ID="CreatedMessage" />
+        </p>
         <div class="form-group">
             <label for="inputPin" class="col-lg-2 control-label">Pin code</label>
             <div class="col-lg-10">

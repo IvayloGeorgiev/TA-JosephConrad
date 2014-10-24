@@ -22,8 +22,8 @@ namespace AccountSystem.WebForms.Users
             {
                 Response.Redirect("/");
             }
-            
-            var userId = User.Identity.GetUserId();            
+
+            var userId = User.Identity.GetUserId();
 
             var data = new AccountSystemData(new AccountSystemDbContext());
             adminRoleId = data.Roles.All().FirstOrDefault(r => r.Name == "Admin").Id;
@@ -53,7 +53,7 @@ namespace AccountSystem.WebForms.Users
             }
             else if (findBy == "email")
             {
-                var user = data.Users.All().Where(x => x.Email == searchData).FirstOrDefault();
+                var user = data.Users.All().Where(x => x.Email.Contains(searchData)).FirstOrDefault();
                 Redirect(user);
             }
         }

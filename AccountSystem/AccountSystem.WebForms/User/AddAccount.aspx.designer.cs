@@ -10,7 +10,7 @@
 namespace AccountSystem.WebForms.User {
     
     
-    public partial class AddCard {
+    public partial class AddAccount {
         
         /// <summary>
         /// ErrorMessage control.
@@ -31,30 +31,12 @@ namespace AccountSystem.WebForms.User {
         protected global::System.Web.UI.WebControls.Literal CreatedMessage;
         
         /// <summary>
-        /// tbPassword control.
+        /// ListBoxCurrencyTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPassword;
-        
-        /// <summary>
-        /// ListBoxCardTypes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListBoxCardTypes;
-        
-        /// <summary>
-        /// ListBoxBankAccounts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListBoxBankAccounts;
+        protected global::System.Web.UI.WebControls.DropDownList ListBoxCurrencyTypes;
     }
 }

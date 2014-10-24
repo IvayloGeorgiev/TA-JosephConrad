@@ -215,6 +215,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Admin\List.aspx" />
+    <Content Include="User\AddAccount.aspx" />
     <Content Include="User\AddCard.aspx" />
     <Content Include="User\CardDetails.aspx" />
     <Content Include="User\Cards.aspx" />
@@ -442,6 +443,13 @@
     </Compile>
     <Compile Include="Users\Admin\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\AddCard.aspx.cs">
       <DependentUpon>AddCard.aspx</DependentUpon>

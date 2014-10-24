@@ -4,6 +4,7 @@
 
     <div class="jumbotron">
         <h1>Welcome <%: Context.User.Identity.GetUserName() %></h1>
+        <asp:HyperLink NavigateUrl="~/User/AddAccount" runat="server" Text="Create New Account" CssClass="btn btn-primary"/>
     </div>
 
     <div class="row">

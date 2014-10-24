@@ -19,7 +19,7 @@
             : base()
         {
             this.accounts = new HashSet<BankAccount>();
-            this.cards = new HashSet<Card>();            
+            this.cards = new HashSet<Card>();
         }
 
         public ClaimsIdentity GenerateUserIdentity(UserManager<ApplicationUser> manager)
@@ -34,6 +34,8 @@
         {
             return Task.FromResult(GenerateUserIdentity(manager));
         }
+
+        public List<string> Documents { get; set; }
         
         public int? AddressId { get; set; }
 

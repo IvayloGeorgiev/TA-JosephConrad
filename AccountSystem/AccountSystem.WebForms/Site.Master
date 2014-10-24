@@ -52,6 +52,7 @@
                     <ul class="nav navbar-nav">
                         <% if (HttpContext.Current.User.IsInRole("Client")) {%>
                             <li><a runat="server" href="~/Users/Details.aspx">Your accounts</a></li>
+                        <li><a runat="server" href="~/User/Cards.aspx">Cards</a></li>
                         <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>                            
                             <li><a runat="server" href="~/Users/Admin/List">Users</a></li>                            
                             <li><a runat="server" href="~/Users/Admin/PendingCards">Pending Cards</a></li>                            
@@ -63,7 +64,7 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <!--<li><a runat="server" href="~/Account/Register">Register</a></li>-->
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
