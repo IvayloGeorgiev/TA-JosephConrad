@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Security.Principal;
+using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+using Microsoft.AspNet.Identity;
+
+using AccountSystem.Data;
+using AccountSystem.Models;
 
 namespace AccountSystem.WebForms
 {
@@ -14,6 +17,24 @@ namespace AccountSystem.WebForms
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+
+        public SiteMaster()
+        {
+            this.appData = new AccountSystemData(new AccountSystemDbContext());
+            if (this.Context.User.Identity.IsAuthenticated)
+            {
+                var userId = this.Context.User.Identity.GetUserId();
+                var documentsCount = this.appData.Users.All().FirstOrDefault(u => u.Id == userId).Documents.Count;
+                if (documentsCount > 0)
+                {
+                    this.isIdentityVerified = true;
+                }
+            }
+        }
+
+        public bool isIdentityVerified { get; set; }
+
+        private IAccountSystemData appData { get; set; }
 
         protected void Page_Init(object sender, EventArgs e)
         {

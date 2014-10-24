@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -50,17 +50,20 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <% if (HttpContext.Current.User.IsInRole("Client")) {%>
-                            <li><a runat="server" href="~/Users/Details.aspx">Your accounts</a></li>
+                        <% if (HttpContext.Current.User.IsInRole("Client"))
+                           {%>
+                        <li><a runat="server" href="~/Users/Details.aspx">Your accounts</a></li>
                         <li><a runat="server" href="~/User/Cards.aspx">Cards</a></li>
-                        <%} else if (HttpContext.Current.User.IsInRole("Admin")) {%>                            
-                            <li><a runat="server" href="~/Users/Admin/List">Users</a></li>                            
-                            <li><a runat="server" href="~/Users/Admin/PendingCards">Pending Cards</a></li>                            
+                        <%}
+                           else if (HttpContext.Current.User.IsInRole("Admin"))
+                           {%>
+                        <li><a runat="server" href="~/Users/Admin/List">Users</a></li>
+                        <li><a runat="server" href="~/Users/Admin/PendingCards">Pending Cards</a></li>
                         <%} %>
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
+                        <%--<li><a runat="server" href="~/About">About</a></li>--%>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>                    
+                    </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -81,6 +84,15 @@
             </div>
         </div>
         <div class="container body-content">
+            <% if (!isIdentityVerified && this.Context.User.Identity.IsAuthenticated && !HttpContext.Current.User.IsInRole("Admin"))
+               {%>
+            <div class="alert alert-dismissable alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>Your account is not verified!</h4>
+                <p>In order get your requests processed you need to provide some ID scan or other document to verify.</p>
+                <a href="/User/Verify" class="btn btn-warning">Verify</a>
+            </div>
+            <%}%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

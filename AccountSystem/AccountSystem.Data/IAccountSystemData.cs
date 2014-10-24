@@ -17,6 +17,8 @@
 
         IRepository<Card> Cards { get; }
 
+        IRepository<Transaction> Transactions { get; }
+
         int SaveChanges();
     }
 }

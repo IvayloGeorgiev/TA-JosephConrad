@@ -1,5 +1,5 @@
 ﻿namespace AccountSystem.WebForms.BankAccounts.Admin
-{    
+{
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,7 +13,7 @@
     {
         protected string ibanId;
         protected AccountSystemData data = new AccountSystemData(new AccountSystemDbContext());
-        protected string username;        
+        protected string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@
             {
                 Response.Redirect("/");
             }
-            
+
             ibanId = Request.QueryString["id"];
             if (ibanId == null)
             {
@@ -37,7 +37,7 @@
 
             username = account.Owner.UserName;
 
-            if (!IsPostBack) 
+            if (!IsPostBack)
             {
                 LiteralCurrency.Text = account.CurrencyType.ToString();
                 LiteralBalance.Text = account.Balance.ToString();

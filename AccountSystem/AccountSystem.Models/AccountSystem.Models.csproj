@@ -60,6 +60,7 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CurrencyType.cs" />
+    <Compile Include="FileUploadData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
