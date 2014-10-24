@@ -1,15 +1,17 @@
-﻿using AccountSystem.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+﻿namespace AccountSystem.WebForms.BankAccounts
+{    
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
 
-namespace AccountSystem.WebForms.BankAccounts
-{
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
+    using AccountSystem.Data;
+
     public partial class Details : System.Web.UI.Page
     {
         protected string ibanId;
@@ -32,20 +34,33 @@ namespace AccountSystem.WebForms.BankAccounts
                 {
                     Response.Redirect("/Users/Details");
                 }
-                else
+
+                if (account.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
                 {
-                    LabelCurrency.Text = account.CurrencyType.ToString();
-                    LabelBalance.Text = account.Balance.ToString();
-                    LabelOwner.Text = account.Owner.UserName;
-                    LabelStatus.Text = account.Status.ToString();
-                    var userCards = account.Owner.Cards.ToList();
+                    Response.Redirect("/");
                 }
+               
+                LiteralCurrency.Text = account.CurrencyType.ToString();
+                LiteralBalance.Text = account.Balance.ToString();
+                LiteralOwner.Text = account.Owner.UserName;
+                LabelStatus.Text = account.Status.ToString();
+                var userCards = account.Owner.Cards.ToList();                
             }
 
             else
             {
                 Response.Redirect("/");
             }
+        }
+
+        protected void TransactionHistory_Command(object sender, CommandEventArgs e)
+        {            
+            Response.Redirect("~/BankAccounts/TransactionHistory?id=" + ibanId);
+        }
+
+        protected void Transfer_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("~/BankAccounts/Transfer?id=" + ibanId);
         }
     }
 }

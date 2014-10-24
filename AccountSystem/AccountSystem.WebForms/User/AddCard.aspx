@@ -15,6 +15,12 @@
                 <asp:TextBox ID="tbPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="tbPassword"
                     CssClass="text-danger" ErrorMessage="Password is required." />
+                <asp:RegularExpressionValidator
+                        ID="RegularExpressionValidatorPin"
+                        runat="server" CssClass="text-danger" Display="Dynamic"
+                        ErrorMessage="Pin should contain only digits and should be between 4 and 6 symbols!"
+                        ControlToValidate="tbPassword" EnableClientScript="False"
+                        ValidationExpression="[0-9]{4,6}" />
             </div>
         </div>
         <div class="form-group">

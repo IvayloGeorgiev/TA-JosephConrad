@@ -37,54 +37,57 @@ namespace AccountSystem.WebForms.User
 
         protected void AddNewCard(object sender, EventArgs e)
         {
-            var fieldCardType = this.ListBoxCardTypes;
-            var fieldPassword = this.tbPassword;
-            var fieldBankAccount = this.ListBoxBankAccounts;
-
-            if (fieldCardType == null || fieldPassword == null || fieldBankAccount == null)
+            if (Page.IsValid)
             {
-                this.ErrorMessage.Text = "Fill all fields!";
-                return;
-                //Empty input
+                var fieldCardType = this.ListBoxCardTypes;
+                var fieldPassword = this.tbPassword;
+                var fieldBankAccount = this.ListBoxBankAccounts;
+
+                if (fieldCardType == null || fieldPassword == null || fieldBankAccount == null)
+                {
+                    this.ErrorMessage.Text = "Fill all fields!";
+                    return;
+                    //Empty input
+                }
+
+                var cardType = (CardType)fieldCardType.SelectedIndex;
+                var selectedPassword = fieldPassword.Text;
+                var accountIban = fieldBankAccount.SelectedItem.Text;
+                var currentUser = this.appData.Users.All().FirstOrDefault(u => u.Id == this.currentUserId);
+
+                var selectedAccount = currentUser.Accounts.FirstOrDefault(a => a.IBAN.ToString() == accountIban);
+                if (selectedAccount == null)
+                {
+                    this.ErrorMessage.Text = "Incorrect iban";
+                    return;
+                    //Missing or not account to this user
+                }
+                else if (cardType == null)
+                {
+                    this.ErrorMessage.Text = "Incorrect card type";
+                    return;
+                    //Invalid card type
+                }
+                else if (String.IsNullOrEmpty(selectedPassword) || selectedPassword.Length < 4 || selectedPassword.Length > 6)
+                {
+                    this.ErrorMessage.Text = "Incorrect password length(4-6 symbols)";
+                    return;
+                    //Invalid password
+                }
+
+                var newCard = new Card()
+                {
+                    Pin = selectedPassword,
+                    CardType = cardType,
+                    Owner = currentUser,
+                    Account = selectedAccount
+                };
+
+                currentUser.Cards.Add(newCard);
+                this.appData.SaveChanges();
+
+                Response.Redirect("~/User/Cards");
             }
-
-            var cardType = (CardType)fieldCardType.SelectedIndex;
-            var selectedPassword = fieldPassword.Text;
-            var accountIban = fieldBankAccount.SelectedItem.Text;
-            var currentUser = this.appData.Users.All().FirstOrDefault(u => u.Id == this.currentUserId);
-
-            var selectedAccount = currentUser.Accounts.FirstOrDefault(a => a.IBAN.ToString() == accountIban);
-            if (selectedAccount == null)
-            {
-                this.ErrorMessage.Text = "Incorrect iban";
-                return;
-                //Missing or not account to this user
-            }
-            else if (cardType == null)
-            {
-                this.ErrorMessage.Text = "Incorrect card type";
-                return;
-                //Invalid card type
-            }
-            else if (String.IsNullOrEmpty(selectedPassword) || selectedPassword.Length < 4 || selectedPassword.Length > 6)
-            {
-                this.ErrorMessage.Text = "Incorrect password length(4-6 symbols)";
-                return;
-                //Invalid password
-            }
-
-            var newCard = new Card()
-            {
-                Pin = selectedPassword,
-                CardType = cardType,
-                Owner = currentUser,
-                Account = selectedAccount
-            };
-
-            currentUser.Cards.Add(newCard);
-            this.appData.SaveChanges();
-
-            Response.Redirect("~/User/Cards");
         }
     }
 }

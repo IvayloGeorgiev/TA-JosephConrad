@@ -26,6 +26,13 @@
                     <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                         CssClass="text-danger" ErrorMessage="The email field is required." />
+                    <asp:RegularExpressionValidator
+                        ID="RegularExpressionValidatorEmail"
+                        runat="server" CssClass="text-danger" Display="Dynamic"
+                        ErrorMessage="Email address is incorrect!"
+                        ControlToValidate="Email" EnableClientScript="False"
+                        ValidationExpression="[a-zA-Z][a-zA-Z0-9\-\.]*[a-zA-Z]@[a-zA-Z][a-zA-Z0-9\-\.]+[a-zA-Z]+\.[a-zA-Z]{2,4}">
+                    </asp:RegularExpressionValidator>
                 </div>
             </div>
             <div class="form-group">

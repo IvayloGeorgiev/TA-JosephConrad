@@ -46,9 +46,9 @@ namespace AccountSystem.WebForms.User
             var newAccount = new BankAccount()
             {
                 Owner = currentUser,
-                CurrencyType = currencyType,
-                IBAN = Guid.NewGuid(),
-                Balance = 0
+                CurrencyType = currencyType,                
+                Balance = 0,
+                Status = AccountStatus.Pending
             };
             currentUser.Accounts.Add(newAccount);
             this.appData.SaveChanges();
