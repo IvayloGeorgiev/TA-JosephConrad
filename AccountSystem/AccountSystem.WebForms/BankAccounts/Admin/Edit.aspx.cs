@@ -40,9 +40,13 @@
 
             var values = Enum.GetValues(typeof(AccountStatus));
 
-            AccountStatusField.DataSource = values;
-            AccountStatusField.DataBind();
-            AccountStatusField.SelectedIndex = (int)account.Status.GetTypeCode();            
+            if (!IsPostBack) 
+            { 
+                AccountStatusField.DataSource = values;
+                AccountStatusField.DataBind();
+                AccountStatusField.SelectedValue = account.Status.ToString();
+                BalanceField.Text = account.Balance.ToString();
+            }                        
         }
 
         protected void EditAccount_Click(object sender, EventArgs e)
@@ -51,13 +55,47 @@
             {
                 var currentStatus = (AccountStatus)Enum.Parse(typeof(AccountStatus), AccountStatusField.SelectedValue, true);
 
-                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();                
+                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();
+                var newBalance = decimal.Parse(BalanceField.Text);
+                if (account.Balance != newBalance)
+                {
+                    var transaction = new Transaction() { AccountId = account.Id, Amount = account.Balance - newBalance, Reason = "Deposit", TimeOfTransaction = DateTime.Now };
+                    data.Transactions.Add(transaction);
+                }
+                account.Balance = decimal.Parse(BalanceField.Text);
                 account.Status = currentStatus;
                 
                 data.Accounts.Update(account);
                 data.SaveChanges();
 
                 Response.Redirect("/Users/Admin/UserDetails?id=" + account.OwnerId);
+            }
+        }
+
+        protected void DecimalValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            try
+            {
+                decimal.Parse(args.Value);
+                args.IsValid = true;
+            }
+            catch (Exception ex)
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void BalanceValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            try
+            {
+                var newBalance = decimal.Parse(args.Value);
+                var account = data.Accounts.All().Where(x => x.IBAN.ToString() == ibanId).FirstOrDefault();
+                args.IsValid = account.Balance <= newBalance;
+            }
+            catch (Exception ex)
+            {
+                args.IsValid = false;
             }
         }
     }

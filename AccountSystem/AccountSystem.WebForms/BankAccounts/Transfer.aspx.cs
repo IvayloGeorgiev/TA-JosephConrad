@@ -57,7 +57,7 @@
 
                 var curAccount = data.Accounts.All().Where(a => a.IBAN.ToString() == ibanId).FirstOrDefault();               
 
-                var newTransaction = new Transaction() { AccountId = curAccount.Id, Amount = amount, Reason = ReasonField.Text, TargetIban = TargetIBANField.Text, TimeOfTransaction = DateTime.Now };
+                var newTransaction = new Transaction() { AccountId = curAccount.Id, Amount = -amount, Reason = ReasonField.Text, TargetIban = TargetIBANField.Text, TimeOfTransaction = DateTime.Now };
                 curAccount.Balance -= amount;
                 data.Transactions.Add(newTransaction);
                 data.Accounts.Update(curAccount);

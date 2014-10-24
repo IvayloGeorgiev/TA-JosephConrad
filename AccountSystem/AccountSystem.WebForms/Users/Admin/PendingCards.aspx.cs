@@ -30,29 +30,7 @@ namespace AccountSystem.WebForms.Users.Admin
         //     out int totalRowCount
         //     string sortByExpression
         public IQueryable<AccountSystem.Models.Card> GridViewCards_GetData()
-        {
-            if (this.appData.Cards.All().FirstOrDefault(c => c.Owner.UserName == this.User.Identity.Name) == null)
-            {
-                var currentUser = this.appData.Users.All().FirstOrDefault(u => u.UserName == this.User.Identity.Name);
-                var newAccount = new BankAccount()
-                {
-                    Owner = currentUser,
-                    Balance = 5
-                };
-                currentUser.Accounts.Add(newAccount);
-                var newCard = new Card()
-                {
-                    Pin = "1234",
-                    CardNumber = "9234567891234567",
-                    ExpirationDate = DateTime.Now.AddDays(10),
-                    Account = newAccount,
-                    Owner = newAccount.Owner
-                };
-
-                newAccount.Cards.Add(newCard);
-                this.appData.SaveChanges();
-            }
-
+        {            
             return this.appData.Cards.All().Where(x => x.CardStatus == CardStatus.Pending).AsQueryable<Card>();
         }
 

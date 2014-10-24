@@ -163,6 +163,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="BankAccounts\Admin\Create.aspx" />
+    <Content Include="BankAccounts\Admin\Details.aspx" />
     <Content Include="BankAccounts\Admin\Edit.aspx" />
     <Content Include="BankAccounts\Details.aspx" />
     <Content Include="BankAccounts\TransactionHistory.aspx" />
@@ -358,6 +359,13 @@
     </Compile>
     <Compile Include="BankAccounts\Admin\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BankAccounts\Admin\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BankAccounts\Admin\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="BankAccounts\Admin\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>

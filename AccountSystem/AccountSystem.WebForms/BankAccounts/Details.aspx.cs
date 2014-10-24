@@ -35,7 +35,7 @@
                     Response.Redirect("/Users/Details");
                 }
 
-                if (account.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+                if (account.OwnerId != User.Identity.GetUserId())
                 {
                     Response.Redirect("/");
                 }
