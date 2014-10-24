@@ -220,6 +220,7 @@
     <Content Include="User\AddCard.aspx" />
     <Content Include="User\CardDetails.aspx" />
     <Content Include="User\Cards.aspx" />
+    <Content Include="User\Verify.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -477,6 +478,13 @@
       <DependentUpon>Cards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="User\Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,6 +495,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploaded_Documents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccountSystem.Data\AccountSystem.Data.csproj">

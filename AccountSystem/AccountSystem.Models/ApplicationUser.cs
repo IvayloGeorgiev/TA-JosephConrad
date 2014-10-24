@@ -20,6 +20,7 @@
         {
             this.accounts = new HashSet<BankAccount>();
             this.cards = new HashSet<Card>();
+            this.Documents = new HashSet<FileUploadData>();
         }
 
         public ClaimsIdentity GenerateUserIdentity(UserManager<ApplicationUser> manager)
@@ -35,11 +36,11 @@
             return Task.FromResult(GenerateUserIdentity(manager));
         }
 
-        public List<string> Documents { get; set; }
-        
+        public virtual ICollection<FileUploadData> Documents { get; set; }
+
         public int? AddressId { get; set; }
 
-        public virtual Address Address { get; set; }        
+        public virtual Address Address { get; set; }
 
         public virtual ICollection<BankAccount> Accounts
         {
